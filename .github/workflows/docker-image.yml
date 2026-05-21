@@ -89,7 +89,7 @@ jobs:
         curl -X POST http://localhost:8080/api/Chicken \
           -H "Content-Type: application/json" \
           -d '{"name": "Chuck Norris", "breed": "Rhode Island Red"}' \
-          --fall --verbose
+          --fail --verbose
 
     - name: Integration Step 2 - Verify Front-End MVC Data Rendering
       run: |
@@ -97,7 +97,7 @@ jobs:
         MVC_RESPONSE=$(curl -s http://localhost:80)
 
         echo "Asserting that the front-end view successfully displays the dynamic API string context..."
-        if echo "$MVC_RESPONSE" | grep -q "Cluck Norris"; then
+        if echo "$MVC_RESPONSE" | grep -q "Chuck Norris"; then
           echo "SUCCESS: MVC interface successfully fetched and displayed containerized API data!"
         else
           echo "ERROR: Data assertion failed. The MVC home page is not showing the injected database string payload"
