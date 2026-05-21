@@ -23,7 +23,8 @@ namespace ChickenAPI
             if (true)
             {
                 app.MapOpenApi(); //generates /openapi/v1.json
-                app.UseSwaggerUI(options => {
+                app.UseSwaggerUI(options =>
+                {
                     //tell swagger UI to look at the native .NET OpenAI endpoint
                     options.SwaggerEndpoint("/openapi/v1.json", "Chicken API v1");
                     options.RoutePrefix = "swagger";
