@@ -86,10 +86,10 @@ jobs:
     - name: Integration Step 1 - Seed Data via API
       run: |
         echo "Posting a new chicken payload to the database..."
-        curl -X POST http://localhost:8080/api/Chicken \
+        curl --fail --verbose POST http://localhost:8080/api/Chicken \
           -H "Content-Type: application/json" \
-          -d '{"name": "Chuck Norris", "breed": "Rhode Island Red"}' \
-          --fail --verbose
+          -d '{"name": "Chuck Norris", "breed": "Rhode Island Red"}' 
+          
 
     - name: Integration Step 2 - Verify Front-End MVC Data Rendering
       run: |
