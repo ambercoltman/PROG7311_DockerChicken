@@ -9,10 +9,10 @@ namespace ChickenAPI.Model
         public int ChickID {get; set;}
         [Required]
         [MaxLength(50)]
-        public string Name {get; set;}
+        public string? Name {get; set;}
         [Required]
         [MaxLength(50)]
-        public string Breed {get; set;}
+        public string? Breed {get; set;}
         [Range(0,50)] //assuming chickens won't live past 50 years
         public int Age {get; set;}
         [Column(TypeName = "decimal(5,2)")]
