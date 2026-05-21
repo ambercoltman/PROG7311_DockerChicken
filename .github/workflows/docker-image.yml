@@ -113,13 +113,13 @@ jobs:
         docker compose down --volumes
 
     # JOB 4: Automated continuous delivery task gated behind previous validation approvals
-    cd-deployment:
-      name: Production Cloud Deployment
-      runs-on: ubuntu-latest
-      needs: integration-testing
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-      environment: Production
-      steps:
-      - name: Execute Server Infrastructure Sync
-        run: |
-          echo "All automated tests passed cleanly.  Initiating production handshake scripts..."
+  cd-deployment:
+    name: Production Cloud Deployment
+    runs-on: ubuntu-latest
+    needs: integration-testing
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    environment: Production
+    steps:
+    - name: Execute Server Infrastructure Sync
+      run: |
+        echo "All automated tests passed cleanly.  Initiating production handshake scripts..."
